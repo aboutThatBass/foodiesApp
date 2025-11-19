@@ -20,4 +20,5 @@ public class MainController {
     public void handleLogout(ActionEvent e) {
         SceneController.switchScene("home.fxml");
     }
+
 }

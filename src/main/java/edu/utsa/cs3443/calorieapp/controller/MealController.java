@@ -1,15 +1,47 @@
 package edu.utsa.cs3443.calorieapp.controller;
 
 import edu.utsa.cs3443.calorieapp.SceneController;
+import edu.utsa.cs3443.calorieapp.manager.MealManager;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class MealController {
 
-    public void handleSubmit(ActionEvent e) {
-        System.out.println("Meal added!");
+    private MealManager mealManager;
+
+    public void initialize(){
+        mealManager = SceneController.getMealManager();
+    }
+
+    @FXML
+    private TextField foodNameField;
+
+    @FXML
+    private TextField calField;
+
+    @FXML
+    private TextField dateField;
+
+    @FXML
+    private TextField timeField;
+
+    @FXML
+    public void handleSubmit(ActionEvent e) throws IOException {
+        String name = foodNameField.getText();
+        String date = dateField.getText();
+        String time = timeField.getText();
+
+        //TODO: INPUT VALIDATION
+        int calories = Integer.parseInt(calField.getText());
+
+        mealManager.addMealGUI(name,date,time,calories);
         SceneController.switchScene("main.fxml");
     }
 
+    @FXML
     public void handleBack(ActionEvent e) {
         SceneController.switchScene("main.fxml");
     }

@@ -1,6 +1,7 @@
 module edu.utsa.cs3443.calorieapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     // FXML needs reflection access to controllers
     opens edu.utsa.cs3443.calorieapp to javafx.fxml;

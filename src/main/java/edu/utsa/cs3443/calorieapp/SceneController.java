@@ -1,10 +1,20 @@
 package edu.utsa.cs3443.calorieapp;
 
+import edu.utsa.cs3443.calorieapp.manager.MealManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneController {
+    private static MealManager mealManager;
+
+    public static void setMealManager(MealManager mm) {
+        mealManager = mm;
+    }
+
+    public static MealManager getMealManager() {
+        return mealManager;
+    }
 
     private static Stage primaryStage;
 

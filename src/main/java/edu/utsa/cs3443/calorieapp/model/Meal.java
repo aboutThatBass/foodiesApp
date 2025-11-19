@@ -1,47 +1,73 @@
 package edu.utsa.cs3443.calorieapp.model;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Meal {
-
-    private int id;
     private String name;
+    private int id;
     private String date;
     private String time;
     private int calories;
 
-    public Meal(int id, String name, String date, String time, int calories) {
-        this.id = id;
+    public Meal(String name, String date, String time, int calories) {
         this.name = name;
         this.date = date;
         this.time = time;
         this.calories = calories;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getDate() { return date; }
-    public String getTime() { return time; }
-    public int getCalories() { return calories; }
-
-    public void setName(String name) { this.name = name; }
-    public void setDate(String date) { this.date = date; }
-    public void setTime(String time) { this.time = time; }
-    public void setCalories(int calories) { this.calories = calories; }
-
-    public String toCSV() {
-        return id + "," + name + "," + date + "," + time + "," + calories;
+    public Meal(String name, int id, String date, String time, int calories) {
+        this.name = name;
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.calories = calories;
     }
 
-    public static Meal fromCSV(String line) {
-        String[] parts = line.split(",");
-        if (parts.length != 5) return null;
+    public int getId() {
+        return id;
+    }
 
-        return new Meal(
-                Integer.parseInt(parts[0]),
-                parts[1],
-                parts[2],
-                parts[3],
-                Integer.parseInt(parts[4])
-        );
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + id + " " + date + " " + time + " " + calories + "\n";
     }
 }
 
