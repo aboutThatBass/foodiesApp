@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="500" prefWidth="800" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MainController">
+
+    <!-- TOP: Title -->
+    <top>
+        <VBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <Label style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Goals" />
+        </VBox>
+    </top>
+
+    <!-- CENTER: Main Layout -->
+    <center>
+        <HBox alignment="CENTER" maxHeight="200.0" spacing="40">
+
+            <!-- LEFT GRAY BOX -->
+            <VBox alignment="CENTER" maxHeight="500.0" prefHeight="500.0" prefWidth="140.0" spacing="10" style="-fx-background-color: #e0e0e0; -fx-padding:20; -fx-border-color: gray; -fx-border-width: 1;">
+
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Goals" />
+                <Label text="numbers for" />
+                <Label text="this week" />
+
+            </VBox>
+
+            <!-- RIGHT BUTTONS -->
+            <VBox alignment="CENTER" spacing="15">
+
+                <Button fx:id="carbButton" prefWidth="200" text="Goal Carbs count" />
+
+                <Button fx:id="proteinButton" prefWidth="200" text="Goal Protein count" />
+
+                <Button fx:id="fatButton" prefWidth="200" text="Goal Fats count" />
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+    <!-- BOTTOM: Back Button -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="10">
+            <Button onAction="#handleBack" prefWidth="150" text="Back" />
+        </VBox>
+    </bottom>
+
+</BorderPane>

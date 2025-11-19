@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.utsa.cs3443.calorieapp.controller.MealController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="600" prefHeight="450">
+
+    <children>
+
+        <Label text="Add Food" style="-fx-font-size: 28px;" />
+
+        <!-- Centered GridPane -->
+        <GridPane hgap="15" vgap="15" alignment="CENTER">
+            <children>
+
+                <TextField fx:id="foodNameField"
+                           promptText="Food Name"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+                <TextField fx:id="calField"
+                           promptText="Calories"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <TextField fx:id="dateField"
+                           promptText="Date (MM/DD/YY)"
+                           GridPane.rowIndex="1" GridPane.columnIndex="0" />
+
+                <TextField fx:id="timeField"
+                           promptText="Time"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            </children>
+        </GridPane>
+
+        <Button text="Submit" prefWidth="150"
+                onAction="#handleSubmit" />
+
+        <Button text="Back" prefWidth="150"
+                onAction="#handleBack" />
+
+    </children>
+
+</VBox>

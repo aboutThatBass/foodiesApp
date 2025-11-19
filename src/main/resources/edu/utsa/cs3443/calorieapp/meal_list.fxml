@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root alignment="CENTER" prefHeight="400.0" prefWidth="600.0" type="VBox" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MealController">
+   <children>
+      <Label style="-fx-font-size: 28px;" text="Meal List" />
+      <HBox prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <RadioButton mnemonicParsing="false" text="Show All">
+               <padding>
+                  <Insets left="10.0" />
+               </padding></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Show by Date">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </RadioButton>
+            <TextField promptText="(MM/DD/YY)">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <TextArea prefHeight="200.0" prefWidth="510.0" />
+   </children>
+</fx:root>

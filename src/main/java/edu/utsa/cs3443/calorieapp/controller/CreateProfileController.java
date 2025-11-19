@@ -1,0 +1,12 @@
+package edu.utsa.cs3443.calorieapp.controller;
+
+import edu.utsa.cs3443.calorieapp.SceneController;
+import javafx.event.ActionEvent;
+
+public class CreateProfileController {
+
+    public void handleSubmit(ActionEvent e) {
+        System.out.println("Profile submitted!");
+        SceneController.switchScene("login.fxml");
+    }
+}

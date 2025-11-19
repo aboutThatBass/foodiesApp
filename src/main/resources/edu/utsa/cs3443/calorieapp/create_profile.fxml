@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.utsa.cs3443.calorieapp.controller.CreateProfileController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="700" prefHeight="500">
+
+    <children>
+
+        <Label text="Create Profile"
+               style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+
+        <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <children>
+
+                <TextField fx:id="nameField"  promptText="Name"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+                <TextField fx:id="emailField" promptText="Email"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <PasswordField fx:id="passwordField" promptText="Password"
+                               GridPane.rowIndex="1" GridPane.columnIndex="0" />
+
+                <TextField fx:id="ageField" promptText="Age"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <TextField fx:id="currentWeightField" promptText="Current Weight"
+                           GridPane.rowIndex="2" GridPane.columnIndex="0" />
+
+                <TextField fx:id="goalWeightField" promptText="Goal Weight"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            </children>
+        </GridPane>
+
+        <Button text="Submit"
+                prefWidth="200"
+                onAction="#handleSubmit" />
+
+    </children>
+
+</VBox>
+
+
+
