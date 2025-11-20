@@ -34,6 +34,8 @@ public class MealController {
 
         //TODO: INPUT VALIDATION
         int calories = Integer.parseInt(calField.getText());
+        //delete after demo
+        SceneController.addFakeCalories(calories);
 
         mealManager.addMealGUI(name,date,time,calories);
         SceneController.switchScene("main.fxml");

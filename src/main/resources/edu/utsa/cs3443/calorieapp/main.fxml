@@ -3,22 +3,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="500" prefWidth="600" spacing="20" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MainController">
+<VBox alignment="CENTER" prefHeight="500" prefWidth="600" spacing="20" style="-fx-background-color: #5C93C5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MainController">
 
     <children>
         <Label style="-fx-font-size: 30px;" text="Main Menu" />
 
-        <Button onAction="#goToGoals" prefWidth="200" text="Goals" />
+        <Button onAction="#goToGoals" prefWidth="150" text="Daily Totals" />
 
-        <Button onAction="#goToAddFood" prefWidth="200" text="Add Food" />
+        <Button onAction="#goToAddFood" prefWidth="150" text="Add Food" />
+      <Button prefWidth="150" text="Edit/Delete Entry" />
 
-        <Button onAction="#goToMealLog" prefWidth="200" text="Meal Log" />
+        <Button onAction="#goToMealLog" prefWidth="150" text="Meal Log" />
 
-        <Button onAction="#goToWeeklyTotals" prefWidth="200" text="Weekly Totals" />
+        <Button onAction="#goToWeeklyTotals" prefWidth="150" text="Weekly Totals" />
 
-        <Button mnemonicParsing="false" prefWidth="200" text="User Info" />
+        <Button mnemonicParsing="false" prefWidth="150" text="User Info" />
 
-        <Button fx:id="logoutButton" onAction="#handleLogout" prefWidth="200" text="Logout" />
+        <Button fx:id="logoutButton" onAction="#handleLogout" prefWidth="150" text="Logout" />
     </children>
 
 </VBox>

@@ -7,6 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="edu.utsa.cs3443.calorieapp.controller.MealController"
+      style="-fx-background-color: #5C93C5;"
       alignment="CENTER"
       spacing="20"
       prefWidth="600" prefHeight="450">

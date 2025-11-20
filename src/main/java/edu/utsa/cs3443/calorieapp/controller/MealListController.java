@@ -42,6 +42,9 @@ public class MealListController {
         else if(byDateButton.isSelected()){
             outputBox.setText(mealManager.viewMealsByDateGUI(dateBox.getText()));
         }
+        else{
+            outputBox.setText("Please select an option");
+        }
     }
 
     @FXML
