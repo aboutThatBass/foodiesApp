@@ -67,7 +67,7 @@ public class Meal {
 
     @Override
     public String toString() {
-        return name + " " + id + " " + date + " " + time + " " + calories + "\n";
+        return id + " " + name + " " + date + " " + time + " " + calories + "\n";
     }
 }
 

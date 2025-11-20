@@ -13,6 +13,8 @@ public class MainController {
         SceneController.switchScene("goals.fxml");
     }
 
+    public void goToMealLog(ActionEvent e) {  SceneController.switchScene("meal_list.fxml"); }
+
     public void goToWeeklyTotals(ActionEvent e) {
         SceneController.switchScene("weekly_total.fxml");
     }

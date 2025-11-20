@@ -55,8 +55,8 @@ public class MealManager {
                 String[] parts = line.split(",");
 
                 if (parts.length >= 4) {
-                    String name = parts[0];
-                    int id = Integer.parseInt(parts[1]);
+                    String name = parts[1];
+                    int id = Integer.parseInt(parts[0]);
                     String date = parts[2];
                     String time = parts[3];
                     int calories = Integer.parseInt(parts[4]);
@@ -251,8 +251,8 @@ public class MealManager {
 
         FileWriter out = new FileWriter(file);
         for(Meal meal : meals) {
-            out.write(meal.getName().toUpperCase()+","
-                    +meal.getId()+","
+            out.write(meal.getId()+","
+                    +meal.getName().toUpperCase()+","
                     +meal.getDate()+","
                     +meal.getTime()+","
                     +meal.getCalories()+"\n");

@@ -12,13 +12,13 @@
 
         <Button onAction="#goToAddFood" prefWidth="200" text="Add Food" />
 
-        <Button mnemonicParsing="false" prefWidth="200" text="Meal Log" />
+        <Button onAction="#goToMealLog" prefWidth="200" text="Meal Log" />
 
         <Button onAction="#goToWeeklyTotals" prefWidth="200" text="Weekly Totals" />
 
         <Button mnemonicParsing="false" prefWidth="200" text="User Info" />
 
-        <Button onAction="#handleLogout" prefWidth="200" text="Logout" />
+        <Button fx:id="logoutButton" onAction="#handleLogout" prefWidth="200" text="Logout" />
     </children>
 
 </VBox>

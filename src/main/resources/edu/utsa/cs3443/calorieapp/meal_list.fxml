@@ -3,31 +3,47 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<fx:root alignment="CENTER" prefHeight="400.0" prefWidth="600.0" type="VBox" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MealController">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MealListController">
    <children>
       <Label style="-fx-font-size: 28px;" text="Meal List" />
-      <HBox prefHeight="53.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="Show All">
+            <RadioButton fx:id="showAllButton" mnemonicParsing="false" text="Show All">
                <padding>
                   <Insets left="10.0" />
                </padding></RadioButton>
-            <RadioButton mnemonicParsing="false" text="Show by Date">
+            <RadioButton fx:id="byDateButton" mnemonicParsing="false" text="Show by Date">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </RadioButton>
-            <TextField promptText="(MM/DD/YY)">
+            <TextField fx:id="dateBox" promptText="(MM/DD/YY)">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </TextField>
+            <Button fx:id="goButton" mnemonicParsing="false" onAction="#displayLog" text="Go!">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
          </children>
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
       </HBox>
-      <TextArea prefHeight="200.0" prefWidth="510.0" />
+      <TextArea fx:id="outputBox" prefHeight="230.0" prefWidth="510.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" />
+         </VBox.margin>
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
+      <Button mnemonicParsing="false" onAction="#handleBack" text="Back">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Button>
    </children>
-</fx:root>
+</VBox>

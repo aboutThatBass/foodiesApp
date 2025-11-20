@@ -4,29 +4,27 @@ import edu.utsa.cs3443.calorieapp.SceneController;
 import edu.utsa.cs3443.calorieapp.manager.MealManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 
 public class MealController {
 
-    private MealManager mealManager;
+   private MealManager mealManager;
+
+    @FXML
+    private TextField foodNameField;
+    @FXML
+    private TextField calField;
+    @FXML
+    private TextField dateField;
+    @FXML
+    private TextField timeField;
+
 
     public void initialize(){
         mealManager = SceneController.getMealManager();
     }
-
-    @FXML
-    private TextField foodNameField;
-
-    @FXML
-    private TextField calField;
-
-    @FXML
-    private TextField dateField;
-
-    @FXML
-    private TextField timeField;
 
     @FXML
     public void handleSubmit(ActionEvent e) throws IOException {
@@ -45,4 +43,6 @@ public class MealController {
     public void handleBack(ActionEvent e) {
         SceneController.switchScene("main.fxml");
     }
+
+
 }
