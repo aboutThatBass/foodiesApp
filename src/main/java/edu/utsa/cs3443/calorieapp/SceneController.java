@@ -18,11 +18,9 @@ public class SceneController {
 
     //delete this after demo
     private static int fakeCalories = 1220;
-
     public static int getFakeCalories() {
         return fakeCalories;
     }
-
     public static void addFakeCalories(int amount) {
         fakeCalories += amount;
     }

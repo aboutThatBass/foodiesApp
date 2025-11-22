@@ -12,11 +12,11 @@ public class GoalController {
     @FXML
     private TextField calsLeft;
 
-    //fix after demo
+    //fix after demo, currently hard coded to 1800 calorie daily goal
     @FXML
     public void initialize() {
         int eaten = SceneController.getFakeCalories();
-        int dailyGoal = 1800; // pick a value for your demo
+        int dailyGoal = 1800;
 
         calsEaten.setText(String.valueOf(eaten));
         calsLeft.setText(String.valueOf(dailyGoal - eaten));

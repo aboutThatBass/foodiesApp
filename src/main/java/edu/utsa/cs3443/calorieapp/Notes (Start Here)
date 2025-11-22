@@ -1,0 +1,10 @@
+- Let's consider taking the user straight to the Daily Totals page (currently called goals.fxml) and adding a menu bar
+- I haven't touched the CSVManager or the User class
+- Login does not work currently. The screen passes through to the main menu regardless of input
+- data directory should probably be moved out of resources
+    (MealTracker.csv is currently sitting loose directly below the project directory)
+- Still need a screen for edit/delete and User Info
+- Lacking functionality for weekly_total
+- Not an exhaustive list, just the things that jumped out the most for me
+
+        - Chris
