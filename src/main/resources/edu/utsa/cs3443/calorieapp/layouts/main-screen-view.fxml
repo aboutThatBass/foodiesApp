@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.MainController">
+   <top>
+      <MenuBar fx:id="dailyTotalsButton" BorderPane.alignment="CENTER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Daily Totals">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#goToGoals" text="View Daily Totals" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Add Food">
+            <items>
+              <MenuItem fx:id="goToAddFood" mnemonicParsing="false" text="Add Food" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Meals">
+            <items>
+                  <MenuItem fx:id="mealLogButton" mnemonicParsing="false" onAction="#goToMealLog" text="View" />
+                  <MenuItem fx:id="editMealButton" mnemonicParsing="false" onAction="#goToEditMeal" text="Edit" />
+              <MenuItem fx:id="deleteMealButton" mnemonicParsing="false" onAction="#goToDeleteMeal" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="User">
+            <items>
+              <MenuItem fx:id="userButton" mnemonicParsing="false" onAction="#goToUser" text="Edit Info" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Logout">
+              <items>
+                <MenuItem fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

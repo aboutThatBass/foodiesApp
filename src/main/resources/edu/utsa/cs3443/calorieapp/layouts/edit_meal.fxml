@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="450" prefWidth="600" spacing="20" style="-fx-background-color: #5C93C5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.EditMealController">
+
+    <children>
+
+        <Label style="-fx-font-size: 28px;" text="Edit Meal" />
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <Label text="Please Enter Meal ID">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField promptText="ID" />
+         </children>
+      </HBox>
+
+        <!-- Centered GridPane -->
+        <GridPane alignment="CENTER" hgap="15" vgap="15">
+            <children>
+
+                <TextField fx:id="foodNameField" promptText="Food Name" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+
+                <TextField fx:id="calField" promptText="Calories" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+
+                <TextField fx:id="dateField" promptText="Date (MM/DD/YY)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                <TextField fx:id="timeField" promptText="Time" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+        </GridPane>
+
+        <Button onAction="#handleSubmit" prefWidth="150" text="Submit" />
+
+        <Button onAction="#handleBack" prefWidth="150" text="Back" />
+
+    </children>
+
+</VBox>
