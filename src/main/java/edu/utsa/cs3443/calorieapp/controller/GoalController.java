@@ -1,6 +1,5 @@
 package edu.utsa.cs3443.calorieapp.controller;
 
-import edu.utsa.cs3443.calorieapp.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

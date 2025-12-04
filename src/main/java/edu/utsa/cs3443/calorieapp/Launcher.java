@@ -3,7 +3,7 @@ package edu.utsa.cs3443.calorieapp;
 import edu.utsa.cs3443.calorieapp.model.AuthService;
 import edu.utsa.cs3443.calorieapp.model.MealManager;
 import edu.utsa.cs3443.calorieapp.model.UserRepository;
-import edu.utsa.cs3443.calorieapp.SceneController;
+import edu.utsa.cs3443.calorieapp.controller.SceneController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

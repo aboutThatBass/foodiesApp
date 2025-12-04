@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.utsa.cs3443.calorieapp.SceneController;
-import edu.utsa.cs3443.calorieapp.model.UserRepository;
-import edu.utsa.cs3443.calorieapp.model.User;
+import edu.utsa.cs3443.calorieapp.controller.SceneController;
 
 public class MealManager {
     private ArrayList<Meal> meals =  new ArrayList<>();

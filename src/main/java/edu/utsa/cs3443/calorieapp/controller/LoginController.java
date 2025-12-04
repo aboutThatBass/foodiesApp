@@ -1,10 +1,8 @@
 package edu.utsa.cs3443.calorieapp.controller;
 
-import edu.utsa.cs3443.calorieapp.SceneController;
 import edu.utsa.cs3443.calorieapp.model.AuthService;
 import edu.utsa.cs3443.calorieapp.model.MealManager;
 import edu.utsa.cs3443.calorieapp.model.User;
-import edu.utsa.cs3443.calorieapp.model.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
