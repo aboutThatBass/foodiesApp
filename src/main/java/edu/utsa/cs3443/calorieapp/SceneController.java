@@ -1,12 +1,42 @@
 package edu.utsa.cs3443.calorieapp;
 
-import edu.utsa.cs3443.calorieapp.manager.MealManager;
+import edu.utsa.cs3443.calorieapp.model.AuthService;
+import edu.utsa.cs3443.calorieapp.model.MealManager;
+import edu.utsa.cs3443.calorieapp.model.User;
+import edu.utsa.cs3443.calorieapp.model.UserRepository;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneController {
     private static MealManager mealManager;
+    private static UserRepository userRepository;
+    private static User currentUser;
+    private static AuthService authService;
+
+    public static UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public static void setUserRepository(UserRepository userRepository) {
+        SceneController.userRepository = userRepository;
+    }
+
+    public static AuthService getAuthService() {
+        return authService;
+    }
+
+    public static void setAuthService(AuthService authService) {
+        SceneController.authService = authService;
+    }
+
+    public static void setCurrentUser(User u) {
+        currentUser = u;
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
 
     public static void setMealManager(MealManager mm) {
         mealManager = mm;
@@ -14,15 +44,6 @@ public class SceneController {
 
     public static MealManager getMealManager() {
         return mealManager;
-    }
-
-    //delete this after demo
-    private static int fakeCalories = 1220;
-    public static int getFakeCalories() {
-        return fakeCalories;
-    }
-    public static void addFakeCalories(int amount) {
-        fakeCalories += amount;
     }
 
     private static Stage primaryStage;

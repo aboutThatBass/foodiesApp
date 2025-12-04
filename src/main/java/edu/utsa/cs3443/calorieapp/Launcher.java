@@ -1,20 +1,23 @@
 package edu.utsa.cs3443.calorieapp;
 
-import edu.utsa.cs3443.calorieapp.manager.MealManager;
+import edu.utsa.cs3443.calorieapp.model.AuthService;
+import edu.utsa.cs3443.calorieapp.model.MealManager;
+import edu.utsa.cs3443.calorieapp.model.UserRepository;
+import edu.utsa.cs3443.calorieapp.SceneController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.fxml.FXMLLoader;
 
 public class Launcher extends Application {
 
-    private static MealManager mealManager = new MealManager();
-
     @Override
     public void start(Stage stage) throws Exception {
-        mealManager.loadMealsFromFile();
+        UserRepository userRepo = new UserRepository();
+        AuthService authService = new AuthService(userRepo);
+        MealManager mealManager = new MealManager();
+
+        SceneController.setUserRepository(userRepo);
+        SceneController.setAuthService(authService);
         SceneController.setMealManager(mealManager);
-        // Give SceneController access to the primary stage
         SceneController.setPrimaryStage(stage);
         // Load the home screen first
         SceneController.switchScene("/edu/utsa/cs3443/calorieapp/layouts/home.fxml");

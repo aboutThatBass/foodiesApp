@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="edu.utsa.cs3443.calorieapp.controller.LoginController"
-      style="-fx-background-color: #5C93C5;"
-      alignment="CENTER"
-      spacing="20"
-      prefWidth="600" prefHeight="400">
+<VBox alignment="CENTER" prefHeight="400" prefWidth="600" spacing="20" style="-fx-background-color: #5C93C5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.LoginController">
 
     <children>
-        <Label text="Log In" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+        <Label style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Log In" />
 
-        <TextField fx:id="usernameField" promptText="Email"
-                   prefWidth="250" />
+        <TextField fx:id="usernameField" prefWidth="250" promptText="Email">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></TextField>
 
-        <PasswordField fx:id="passwordField" promptText="Password"
-                       prefWidth="250" />
+        <PasswordField fx:id="passwordField" prefWidth="250" promptText="Password">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></PasswordField>
 
-        <Button text="Submit" prefWidth="200"
-                onAction="#handleLogin" />
+        <Button fx:id="submitButton" onAction="#handleSubmit" prefWidth="200" text="Submit" />
     </children>
 
 </VBox>
-
-
-

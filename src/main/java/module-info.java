@@ -11,6 +11,5 @@ module edu.utsa.cs3443.calorieapp {
     // Export packages your app uses
     exports edu.utsa.cs3443.calorieapp;
     exports edu.utsa.cs3443.calorieapp.controller;
-    exports edu.utsa.cs3443.calorieapp.manager;
     exports edu.utsa.cs3443.calorieapp.model;
 }
