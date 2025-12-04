@@ -4,24 +4,70 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The {@code UserRepository} class manages persistent storage and retrieval
+ * of {@link User} objects using a CSV file. It acts as a simple database layer
+ * for creating, loading, saving, and searching users in the application.
+ *
+ * <p>The repository automatically loads existing users from
+ * {@code data/users.csv} when instantiated, and writes all changes back to the
+ * file when users are added.</p>
+ */
+
+
 public class UserRepository {
+
+    /**
+     * The path to the CSV file where user information is stored.
+     */
 
     private static final String USER_FILE = "data/users.csv";
 
+    /**
+     * An in-memory list of all registered users.
+     */
+
+
     private List<User> users = new ArrayList<>();
+
+    /**
+     * Constructs a new {@code UserRepository} and immediately loads all
+     * existing users from the CSV file into memory.
+     */
 
     public UserRepository() {
         load();
     }
 
+
+    /**
+     * Returns the list of all users currently stored in memory.
+     *
+     * @return a {@code List<User>} containing all loaded users
+     */
+
     public List<User> getUsers() {
         return users;
     }
+
+    /**
+     * Adds a new user to the repository and immediately saves the updated
+     * user list to the application
+     *
+     * @param user the {@code User} object to add
+     */
 
     public void addUser(User user) {
         users.add(user);
         save();
     }
+
+    /**
+     * Searches for a user by email (case-insensitive).
+     *
+     * @param email the email address to search for
+     * @return the matching {@code User}, or {@code null} if no match is found
+     */
 
     public User findByEmail(String email) {
         for (User u : users) {
@@ -31,6 +77,14 @@ public class UserRepository {
         }
         return null;
     }
+    /**
+     * Loads user data from the CSV file into memory. If the file does not
+     * exist, the method initializes an empty user list and ensures that the
+     * directory structure exists.
+     *
+     * <p>This method reads and parses each CSV line into a {@code User} object.
+     * Lines with insufficient fields within the file are skipped.</p>
+     */
 
     private void load() {
         users.clear();
@@ -67,6 +121,13 @@ public class UserRepository {
             System.err.println("Error loading users: " + e.getMessage());
         }
     }
+
+    /**
+     * Saves all users currently stored in memory to the CSV file. If the file
+     * or its parent directory does not exist, they are created automatically.
+     *
+     * <p> Keep in mind that all user data is written in CSV format, including a header row.</p>
+     */
 
     private void save() {
         File file = new File(USER_FILE);

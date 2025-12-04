@@ -8,18 +8,55 @@ import java.util.Scanner;
 
 import edu.utsa.cs3443.calorieapp.controller.SceneController;
 
+/**
+ * Manages a collection of {@link Meal} objects for a user, providing functionality
+ * to load meals from a file, save meals, add new meals, and retrieve meal
+ * information in both console and GUI-friendly formats.
+ * <p>
+ * The {@code MealManager} stores meals in memory using an {@code ArrayList}
+ * and persists them in a CSV-style text file where each line represents a meal
+ * in the format:
+ * <pre>
+ *     id,name,date,time,calories
+ * </pre>
+ * The file path used for loading and saving is stored internally and must be
+ * set before performing any file-based operations.
+ */
+
 public class MealManager {
     private ArrayList<Meal> meals =  new ArrayList<>();
     private String filePath;
     User user = SceneController.getCurrentUser();
 
+    /**
+     * Returns the file path currently used for storing meal data.
+     *
+     * @return the file path of the meal log
+     */
+
     public String getFilePath() {
         return filePath;
     }
 
+    /**
+     * Sets the file path to be used for loading and saving meal data.
+     *
+     * @param filePath the path to the meal log file
+     */
+
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
+
+    /**
+     * Loads all meals from the specified file into memory.
+     * <p>
+     * If the file does not exist, it is created automatically. Each line
+     * in the file is expected to contain comma-separated meal fields.
+     * Invalid or incomplete lines are skipped.
+     *
+     * @param filePath the path of the file to load meals from
+     */
 
     public void loadMealsFromFile(String filePath) {
         meals.clear();
@@ -56,6 +93,12 @@ public class MealManager {
         }
     }
 
+    /**
+     * Determines the next available meal ID based on the last stored meal.
+     *
+     * @return a new unique ID for a meal
+     */
+
     private int getNextId(){
         if(meals.isEmpty()) {
             return 1;
@@ -65,6 +108,20 @@ public class MealManager {
             return lastMeal.getId() + 1;
         }
     }
+
+    /**
+     * Adds a new meal using GUI inputs and saves it to the file.
+     * <p>
+     * The method reloads the meals from file, assigns a new ID, appends the meal,
+     * and then persists the updated list.
+     *
+     * @param name     the meal name
+     * @param date     the date the meal was consumed
+     * @param time     the time the meal was consumed
+     * @param calories the calorie count of the meal
+     * @return a success or error message for GUI display
+     * @throws IOException if saving the meal fails
+     */
 
     public String addMealGUI(String name, String date, String time, int calories) throws IOException {
         loadMealsFromFile(filePath);
@@ -82,6 +139,11 @@ public class MealManager {
         return "Meal added successfully!";
     }
 
+    /**
+     * Displays all stored meals to the console in a readable format.
+     * Loads meals from the file before printing.
+     */
+
     public void viewAllMeals(){
         loadMealsFromFile(filePath);
         System.out.println("Meal Name: Meal ID: Date: Time: Calories:\n");
@@ -89,6 +151,15 @@ public class MealManager {
             System.out.print(meal.toString());
         }
     }
+
+
+    /**
+     * Returns a formatted string containing all meals, for GUI display.
+     * Loads meals from the file before formatting.
+     *
+     * @return a string representing all stored meals
+     */
+
 
     public String viewAllMealsGUI() {
         loadMealsFromFile(filePath);
@@ -98,6 +169,14 @@ public class MealManager {
         }
         return sb.toString();
     }
+
+
+    /**
+     * Returns all meals matching a given date in formatted form for GUI display.
+     *
+     * @param date the target date to filter meals by
+     * @return a string containing all meals on that date, or a message if none exist
+     */
 
     public String viewMealsByDateGUI(String date) {
         StringBuilder sb = new StringBuilder();
@@ -113,6 +192,14 @@ public class MealManager {
         }
         return sb.toString();
     }
+
+    /**
+     * Saves all stored meals to the file in CSV format.
+     * <p>
+     * If the file does not exist, it is created. Existing content is overwritten.
+     *
+     * @throws IOException if an error occurs while writing to the file
+     */
 
     public void saveDataToFile() throws IOException {
         File file = new File(filePath);
