@@ -7,11 +7,11 @@ public class LoginController {
 
     public void handleLogin(ActionEvent e) {
         System.out.println("Login → Main Menu");
-        SceneController.switchScene("main.fxml");
+        SceneController.switchScene("/edu/utsa/cs3443/calorieapp/layouts/main-screen-view.fxml");
     }
 
     public void handleRegister(ActionEvent e) {
         System.out.println("Home → Create Profile");
-        SceneController.switchScene("create_profile.fxml");
+        SceneController.switchScene("/edu/utsa/cs3443/calorieapp/layouts/create_profile.fxml");
     }
 }

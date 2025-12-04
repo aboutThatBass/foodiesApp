@@ -4,7 +4,9 @@ import edu.utsa.cs3443.calorieapp.SceneController;
 import edu.utsa.cs3443.calorieapp.manager.MealManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 
 public class MealListController {
@@ -49,6 +51,7 @@ public class MealListController {
 
     @FXML
     public void handleBack(ActionEvent e) {
-        SceneController.switchScene("main.fxml");
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

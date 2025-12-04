@@ -19,16 +19,16 @@
         <GridPane alignment="CENTER" hgap="15" vgap="15">
             <children>
 
-                <TextField fx:id="foodNameField" promptText="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
-                <TextField fx:id="calField" promptText="Email" GridPane.columnIndex="2" />
+                <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="2" />
 
-                <TextField fx:id="dateField" promptText="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="passField" promptText="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-                <TextField fx:id="timeField" promptText="Age" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="timeField1" layoutX="318.0" layoutY="50.0" promptText="Current Weight" GridPane.rowIndex="2" />
-            <TextField fx:id="timeField11" layoutX="154.0" layoutY="93.0" promptText="Goal Weight" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField alignment="CENTER" fx:id="timeField111" layoutX="318.0" layoutY="93.0" promptText="Activity Level" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                <TextField fx:id="ageField" promptText="Age" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="currentWeightField" layoutX="318.0" layoutY="50.0" promptText="Current Weight" GridPane.rowIndex="2" />
+            <TextField fx:id="goalWeightField" layoutX="154.0" layoutY="93.0" promptText="Goal Weight" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="activityLevelField" alignment="CENTER" layoutX="318.0" layoutY="93.0" promptText="Activity Level" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -48,9 +48,9 @@
          </rowConstraints>
         </GridPane>
 
-        <Button onAction="#handleSubmit" prefWidth="150" text="Submit" />
+        <Button fx:id="submitButton" onAction="#handleSubmit" prefWidth="150" text="Submit" />
 
-        <Button onAction="#handleBack" prefWidth="150" text="Back" />
+        <Button fx:id="backButton" onAction="#handleBack" prefWidth="150" text="Back" />
 
     </children>
 

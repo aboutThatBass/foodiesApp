@@ -3,7 +3,9 @@ package edu.utsa.cs3443.calorieapp.controller;
 import edu.utsa.cs3443.calorieapp.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class GoalController {
 
@@ -29,6 +31,7 @@ public class GoalController {
 
     @FXML
     public void handleBack(ActionEvent e) {
-        SceneController.switchScene("main.fxml");
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

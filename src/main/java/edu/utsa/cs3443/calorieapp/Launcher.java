@@ -17,7 +17,7 @@ public class Launcher extends Application {
         // Give SceneController access to the primary stage
         SceneController.setPrimaryStage(stage);
         // Load the home screen first
-        SceneController.switchScene("home.fxml");
+        SceneController.switchScene("/edu/utsa/cs3443/calorieapp/layouts/home.fxml");
     }
 
     public static void main(String[] args) {

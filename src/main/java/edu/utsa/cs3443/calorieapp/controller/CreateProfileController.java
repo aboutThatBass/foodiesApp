@@ -7,6 +7,6 @@ public class CreateProfileController {
 
     public void handleSubmit(ActionEvent e) {
         System.out.println("Profile submitted!");
-        SceneController.switchScene("login.fxml");
+        SceneController.switchScene("/edu/utsa/cs3443/calorieapp/layouts/login.fxml");
     }
 }
