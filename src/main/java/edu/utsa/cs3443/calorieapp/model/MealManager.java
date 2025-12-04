@@ -167,6 +167,9 @@ public class MealManager {
         for (Meal meal : meals){
             sb.append(meal.toString());
         }
+        if(meals.isEmpty()) {
+            sb.append("No meals found.");
+        }
         return sb.toString();
     }
 

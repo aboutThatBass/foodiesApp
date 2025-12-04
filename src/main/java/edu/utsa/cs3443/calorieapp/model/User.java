@@ -133,6 +133,10 @@ public class User {
         return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     /**
      * Returns the user's current weight.
      *

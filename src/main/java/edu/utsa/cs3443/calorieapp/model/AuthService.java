@@ -58,6 +58,34 @@ public class AuthService {
         return user;
     }
 
+    public User update(String name, String email, String password,
+                       int age, double currentWeight, double goalWeight,
+                       int dailyCalories, int proteinGoal) {
+
+        // String validation
+        if (anyBlank(name, password)) {
+            throw new IllegalArgumentException("Name and password must not be empty.");
+        }
+
+        // Numeric validation
+        if (age <= 0 || currentWeight <= 0 || goalWeight <= 0 || dailyCalories <= 0 ||  proteinGoal <= 0) {
+            throw new IllegalArgumentException("All numeric fields must be positive.");
+        }
+
+        User user = userRepo.findByEmail(email);
+        user.setName(name);
+        user.setPassword(password);
+        user.setAge(age);
+        user.setCurrentWeight(currentWeight);
+        user.setGoalWeight(goalWeight);
+        user.setDailyCalorieGoal(dailyCalories);
+        user.setProteinGoal(proteinGoal);
+
+        userRepo.save();
+
+        return user;
+    }
+
     private boolean isBlank(String s) {
         return s == null || s.trim().isEmpty();
     }

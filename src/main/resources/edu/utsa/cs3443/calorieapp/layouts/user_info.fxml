@@ -1,35 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="450" prefWidth="600" spacing="20" style="-fx-background-color: #5C93C5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.UserController">
+<VBox alignment="CENTER" prefHeight="450" prefWidth="600" spacing="10.0" style="-fx-background-color: #5C93C5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.calorieapp.controller.UserController">
 
     <children>
 
         <Label style="-fx-font-size: 28px;" text="User Info" />
 
         <!-- Centered GridPane -->
-        <GridPane alignment="CENTER" hgap="15" vgap="15">
+        <GridPane alignment="CENTER" hgap="15" vgap="15.0">
             <children>
 
-                <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="2" />
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
 
-                <TextField fx:id="passField" promptText="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <TextField fx:id="ageField" promptText="Age" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="currentWeightField" layoutX="318.0" layoutY="50.0" promptText="Current Weight" GridPane.rowIndex="2" />
-            <TextField fx:id="goalWeightField" layoutX="154.0" layoutY="93.0" promptText="Goal Weight" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="activityLevelField" layoutX="318.0" layoutY="93.0" promptText="Activity Level" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="activityLevelField1" layoutX="325.0" layoutY="138.0" promptText="Activity Level" GridPane.rowIndex="3" />
+                <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
+                <Label text="Current Weight:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="currentWeightField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label text="Goal Weight:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="goalWeightField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <Label text="Daily Calorie Goal:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="calorieGoal" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <Label text="Daily Protein Goal:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField fx:id="proteinGoal" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="emailLabel" layoutX="160.0" layoutY="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
             </children>
          <columnConstraints>
             <ColumnConstraints />
@@ -41,8 +76,13 @@
             <RowConstraints />
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
          </rowConstraints>
         </GridPane>
+      <Label fx:id="output" />
 
         <Button fx:id="submitButton" onAction="#handleSubmit" prefWidth="150" text="Submit" />
 

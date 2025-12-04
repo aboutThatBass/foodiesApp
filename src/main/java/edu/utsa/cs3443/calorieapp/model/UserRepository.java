@@ -127,7 +127,7 @@ public class UserRepository {
      * <p> Keep in mind that all user data is written in CSV format, including a header row.</p>
      */
 
-    private void save() {
+    public void save() {
         File file = new File(USER_FILE);
         file.getParentFile().mkdirs();
 
