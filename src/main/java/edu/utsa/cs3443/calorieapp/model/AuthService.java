@@ -29,24 +29,8 @@ public class AuthService {
      * @param goalWeight    the weight the user aims to reach
      * @param dailyCalories the user's daily calorie goal
      * @param proteinGoal   the user's daily protein goal
-     * @param carbGoal      the user's daily carbohydrate goal
-     * @param fatGoal       the user's daily fat goal
      * @return the newly registered {@code User}, or {@code null} if the email is already in use
      */
-
-    /*public User register(String name, String email, String password,
-                         int age, double currentWeight, double goalWeight,
-                         int dailyCalories, int proteinGoal) {
-
-        if (userRepo.findByEmail(email) != null) {
-            return null;
-        }
-
-        User user = new User(name, email, password, age, currentWeight, goalWeight,
-                dailyCalories, proteinGoal);
-        userRepo.addUser(user);
-        return user;
-    }*/
 
     public User register(String name, String email, String password,
                          int age, double currentWeight, double goalWeight,
