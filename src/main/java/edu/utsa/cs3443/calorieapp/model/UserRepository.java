@@ -46,7 +46,7 @@ public class UserRepository {
             String line = br.readLine(); // header
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length < 10) continue;
+                if (parts.length < 8) continue;
 
                 String name = parts[0].trim();
                 String email = parts[1].trim();
@@ -56,11 +56,9 @@ public class UserRepository {
                 double goalWeight = Double.parseDouble(parts[5].trim());
                 int dailyGoal = Integer.parseInt(parts[6].trim());
                 int proteinGoal = Integer.parseInt(parts[7].trim());
-                int carbGoal = Integer.parseInt(parts[8].trim());
-                int fatGoal = Integer.parseInt(parts[9].trim());
 
                 User user = new User(name, email, password, age, currentWeight,
-                        goalWeight, dailyGoal, proteinGoal, carbGoal, fatGoal);
+                        goalWeight, dailyGoal, proteinGoal);
                 users.add(user);
             }
         } catch (IOException | NumberFormatException e) {
@@ -73,9 +71,9 @@ public class UserRepository {
         file.getParentFile().mkdirs();
 
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
-            pw.println("name,email,password,age,currentWeight,goalWeight,dailyCalorieGoal,proteinGoal,carbGoal,fatGoal");
+            pw.println("name,email,password,age,currentWeight,goalWeight,dailyCalorieGoal,proteinGoal");
             for (User u : users) {
-                pw.printf("%s,%s,%s,%d,%.1f,%.1f,%d,%d,%d,%d,%s%n",
+                pw.printf("%s,%s,%s,%d,%.1f,%.1f,%d,%d,%s%n",
                         u.getName(),
                         u.getEmail(),
                         u.getPassword(),
@@ -84,8 +82,8 @@ public class UserRepository {
                         u.getGoalWeight(),
                         u.getDailyCalorieGoal(),
                         u.getProteinGoal(),
-                        u.getCarbGoal(),
-                        u.getFatGoal(),
+                        //u.getCarbGoal(),
+                        //u.getFatGoal(),
                         ""  // reserved
                 );
             }

@@ -28,6 +28,16 @@ public class User {
         this.fatGoal = fatGoal;
     }
 
+    public User(String name, String email, String password, int age, double currentWeight, double goalWeight, int dailyCalorieGoal, int proteinGoal) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.currentWeight = currentWeight;
+        this.goalWeight = goalWeight;
+        this.dailyCalorieGoal = dailyCalorieGoal;
+        this.proteinGoal = proteinGoal;
+    }
     // Basic getters/setters
 
     public String getName() {
