@@ -3,6 +3,7 @@ package edu.utsa.cs3443.calorieapp.model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,6 +28,10 @@ public class MealManager {
     private ArrayList<Meal> meals =  new ArrayList<>();
     private String filePath;
     User user = SceneController.getCurrentUser();
+
+    public ArrayList<Meal> getMeals() {
+        return meals;
+    }
 
     /**
      * Returns the file path currently used for storing meal data.
@@ -78,13 +83,14 @@ public class MealManager {
                 String line = fileScanner.nextLine();
                 String[] parts = line.split(",");
 
-                if (parts.length >= 4) {
+                if (parts.length >= 5) {
                     String name = parts[1];
                     int id = Integer.parseInt(parts[0]);
-                    String date = parts[2];
+                    LocalDate date = LocalDate.parse(parts[2]);
                     String time = parts[3];
                     int calories = Integer.parseInt(parts[4]);
-                    Meal meal = new Meal(name, id, date, time, calories);
+                    int protein = Integer.parseInt(parts[5]);
+                    Meal meal = new Meal(name, id, date, time, calories, protein);
                     meals.add(meal);
                 }
             }
@@ -123,9 +129,9 @@ public class MealManager {
      * @throws IOException if saving the meal fails
      */
 
-    public String addMealGUI(String name, String date, String time, int calories) throws IOException {
+    public String addMealGUI(String name, LocalDate date, String time, int calories, int protein) throws IOException {
         loadMealsFromFile(filePath);
-        Meal meal = new Meal(name.toUpperCase(), date, time, calories);
+        Meal meal = new Meal(name.toUpperCase(), date, time, calories, protein);
         meal.setId(getNextId());
         meals.add(meal);
         saveDataToFile();
@@ -216,7 +222,8 @@ public class MealManager {
                     +meal.getName().toUpperCase()+","
                     +meal.getDate()+","
                     +meal.getTime()+","
-                    +meal.getCalories()+"\n");
+                    +meal.getCalories()+","
+                    +meal.getProtein()+"\n");
         }
         out.close();
     }

@@ -66,7 +66,7 @@ public class MainController {
      */
 
     public void goToGoals(ActionEvent e) {
-        openWindow("goals.fxml", "Goals");
+        openWindow("todays_totals.fxml", "Goals");
     }
 
     /**

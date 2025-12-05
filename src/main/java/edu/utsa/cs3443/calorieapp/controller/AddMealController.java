@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * Controller class responsible for handling user input and actions
@@ -32,19 +33,16 @@ public class AddMealController {
     @FXML
     private TextField foodNameField;
     /** Text field for entering the calorie amount. */
-
     @FXML
     private TextField calField;
-
     /** Text field for entering the meal date. */
-
     @FXML
-    private TextField dateField;
-
+    private TextField proteinField;
+    @FXML
+    private DatePicker datePicker;
     /** Text field for entering the meal time. */
     @FXML
     private TextField timeField;
-
     /** Label used to display success or error messages. */
     @FXML
     private Label output;
@@ -77,18 +75,20 @@ public class AddMealController {
     @FXML
     public void handleSubmit(ActionEvent e) throws IOException {
         String name = foodNameField.getText();
-        String date = dateField.getText();
+        LocalDate date = datePicker.getValue();
         String time = timeField.getText();
 
         //TODO: INPUT VALIDATION
         int calories = Integer.parseInt(calField.getText());
+        int protein = Integer.parseInt(proteinField.getText());
 
-        //mealManager.addMealGUI(name,date,time,calories);
-        output.setText(mealManager.addMealGUI(name,date,time,calories));
+        //mealManager.addMealGUI(name,date,time,calories,protein);
+        output.setText(mealManager.addMealGUI(name,date,time,calories,protein));
         timeField.clear();
-        dateField.clear();
+        datePicker.setValue(null);
         foodNameField.clear();
         calField.clear();
+        proteinField.clear();
     }
 
     /**

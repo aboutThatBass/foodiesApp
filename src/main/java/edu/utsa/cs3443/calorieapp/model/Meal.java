@@ -2,7 +2,7 @@ package edu.utsa.cs3443.calorieapp.model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.time.LocalDate;
 
 
 /**
@@ -15,9 +15,10 @@ import java.io.IOException;
 public class Meal {
     private String name;
     private int id;
-    private String date;
+    private LocalDate date;
     private String time;
     private int calories;
+    private int protein;
 
     /**
      * Constructs a new {@code Meal} without specifying an ID.
@@ -28,19 +29,21 @@ public class Meal {
      * @param calories the number of calories contained in the meal
      */
 
-    public Meal(String name, String date, String time, int calories) {
+    public Meal(String name, LocalDate date, String time, int calories, int protein) {
         this.name = name;
         this.date = date;
         this.time = time;
         this.calories = calories;
+        this.protein = protein;
     }
 
-    public Meal(String name, int id, String date, String time, int calories) {
+    public Meal(String name, int id, LocalDate date, String time, int calories, int protein) {
         this.name = name;
         this.id = id;
         this.date = date;
         this.time = time;
         this.calories = calories;
+        this.protein = protein;
     }
     /**
      * Returns the unique identifier of the meal.
@@ -86,7 +89,7 @@ public class Meal {
      * @return the meal date
      */
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -96,7 +99,7 @@ public class Meal {
      * @param date the new date for this meal
      */
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -140,6 +143,14 @@ public class Meal {
         this.calories = calories;
     }
 
+    public int getProtein() {
+        return protein;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
     /**
      * Returns a formatted string representation of the meal containing its
      * ID, name, date, time, and calorie count.
@@ -147,9 +158,11 @@ public class Meal {
      * @return a string representation of the meal
      */
 
+
+
     @Override
     public String toString() {
-        return id + " " + name + " " + date + " " + time + " " + calories + "\n";
+        return id + " " + name + " " + date + " " + time + " " + calories + " "+ protein + "\n";
     }
 }
 

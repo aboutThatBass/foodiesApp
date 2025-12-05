@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="500" prefWidth="800"
+            style="-fx-background-color: #5C93C5;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.calorieapp.controller.TodaysTotalsController">
+
+    <!-- TOP -->
+    <top>
+        <VBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <Label text="Today's Totals"
+                   style="-fx-font-size: 32px; -fx-font-weight: bold;">
+                <VBox.margin>
+                    <Insets top="25" bottom="10" />
+                </VBox.margin>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <HBox alignment="CENTER" spacing="80">
+            <!-- CALORIES COLUMN -->
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="Today's Caloric Intake" style="-fx-font-size: 18px;" />
+                <Label fx:id="calsEatenOutput" style="-fx-font-size: 15px;" />
+
+                <Label text="Calories Left Today" style="-fx-font-size: 18px;" />
+                <Label fx:id="calsLeftOutput" style="-fx-font-size: 15px;" />
+            </VBox>
+
+            <!-- PROTEIN COLUMN -->
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="Today's Protein Intake" style="-fx-font-size: 18px;" />
+                <Label fx:id="proteinEatenOutput" style="-fx-font-size: 15px;" />
+
+                <Label text="Calories Left This Week" style="-fx-font-size: 18px;" />
+                <Label text="Coming Soon!" style="-fx-font-size: 15px;" />
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="15" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="180" preserveRatio="true" smooth="true">
+                <image>
+                    <Image url="@../images/egg.png" />
+                </image>
+            </ImageView>
+
+            <Button text="Back" prefWidth="150" onAction="#handleBack" />
+            <VBox.margin>
+                <Insets bottom="20" />
+            </VBox.margin>
+        </VBox>
+    </bottom>
+
+</BorderPane>

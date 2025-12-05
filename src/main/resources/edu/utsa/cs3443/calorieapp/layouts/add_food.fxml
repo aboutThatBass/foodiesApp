@@ -18,10 +18,10 @@
                 <TextField fx:id="foodNameField" promptText="Food Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
                 <TextField fx:id="calField" promptText="Calories" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
-                <TextField fx:id="dateField" promptText="Date (MM/DD/YY)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <DatePicker fx:id="datePicker" promptText="Select Date" GridPane.rowIndex="2" />
 
                 <TextField fx:id="timeField" promptText="Time" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="proteinField" layoutX="141.0" layoutY="10.0" promptText="Protein" GridPane.rowIndex="1" />
 
             </children>
          <columnConstraints>
@@ -31,6 +31,7 @@
          <rowConstraints>
             <RowConstraints />
             <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
          </rowConstraints>
         </GridPane>
 
