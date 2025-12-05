@@ -1,4 +1,4 @@
-![Header](./github-header-banner(2).png)
+![Header](./src/main/resources/edu/utsa/cs3443/calorieapp/images/app_header.png)
 
 ## Our Purpose
 
