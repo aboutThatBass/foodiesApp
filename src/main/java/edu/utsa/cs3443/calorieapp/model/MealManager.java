@@ -105,14 +105,14 @@ public class MealManager {
      * @return a new unique ID for a meal
      */
 
-    private int getNextId(){
-        if(meals.isEmpty()) {
-            return 1;
+    private int getNextId() {
+        int max = 0;
+        for (Meal m : meals) {
+            if (m.getId() > max) {
+                max = m.getId();
+            }
         }
-        else {
-            Meal lastMeal = meals.get(meals.size() - 1);
-            return lastMeal.getId() + 1;
-        }
+        return max + 1;
     }
 
     /**
