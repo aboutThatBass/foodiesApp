@@ -19,11 +19,11 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </RadioButton>
-            <TextField fx:id="dateBox" promptText="(MM/DD/YY)">
+            <DatePicker fx:id="datePicker" promptText="(MM/DD/YY)">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
-            </TextField>
+            </DatePicker>
             <Button fx:id="goButton" mnemonicParsing="false" onAction="#displayLog" text="Go!">
                <HBox.margin>
                   <Insets left="10.0" />
