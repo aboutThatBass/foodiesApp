@@ -38,9 +38,9 @@ public class User {
      * @param currentWeight     the user’s current weight
      * @param goalWeight        the user’s target weight
      * @param dailyCalorieGoal  the user’s daily calorie intake goal
-     * @param proteinGoal       the user’s daily protein goal (in grams)
-     * @param carbGoal          the user’s daily carbohydrate goal (in grams)
-     * @param fatGoal           the user’s daily fat goal (in grams)
+     * @param proteinGoal       the user’s daily protein goal
+     * @param carbGoal          the user’s daily carbohydrate goal
+     * @param fatGoal           the user’s daily fat goal
      */
 
     public User(String name, String email, String password,

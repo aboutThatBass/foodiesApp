@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 /**
  * Represents user put information such as the meal name,
- * date and time it was consumed, calorie count, and an optional ID.
+ * date and time it was consumed, calorie/protein count, and an optional ID.
  * <p>
  * This class is  used for logging or tracking user meals within Foodies
  */
@@ -27,6 +27,7 @@ public class Meal {
      * @param date     the date the meal was consumed
      * @param time     the time the meal was consumed
      * @param calories the number of calories contained in the meal
+     * @param protein  the amount of protein in a meal
      */
 
     public Meal(String name, LocalDate date, String time, int calories, int protein) {
@@ -142,10 +143,22 @@ public class Meal {
     public void setCalories(int calories) {
         this.calories = calories;
     }
+    /**
+     * Gets the protein count for the meal.
+     *
+     * @return protein the protein value
+     */
+
 
     public int getProtein() {
         return protein;
     }
+    /**
+     * Sets the protein count for the meal.
+     *
+     * @param protein protein the new protein value
+     */
+
 
     public void setProtein(int protein) {
         this.protein = protein;

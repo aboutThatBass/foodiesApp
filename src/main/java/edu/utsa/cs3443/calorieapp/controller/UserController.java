@@ -32,11 +32,23 @@ public class UserController {
     @FXML private TextField currentWeightField;
     /** Text field for entering the user's goal weight. */
     @FXML private TextField goalWeightField;
-    /** Text field for entering the user's activity level. */
+    /** Text field for entering the user's calorie goal . */
     @FXML private TextField calorieGoal;
+    /** Text field for entering the user's protein goal. */
     @FXML private TextField proteinGoal;
+    /** Text field for producing error due to users output. */
     @FXML private Label output;
 
+    /**
+     * Initializes the profile editing screen by populating all input fields
+     * with the current user's stored profile information.
+     * <p>
+     * This method retrieves the active {@link User} instance from the
+     * {@link SceneController} and fills the corresponding text fields with
+     * the user's name, email, password, age, weights, and nutritional goals.
+     * It ensures the UI displays the user's existing data before any edits occur.
+     * </p>
+     */
     @FXML
     public void initialize(){
         User user = SceneController.getCurrentUser();

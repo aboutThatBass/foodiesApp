@@ -63,7 +63,7 @@ public class AddMealController {
     /**
      * Handles the "Submit" button action. Collects input from form fields,
      * validates and converts calorie input, and passes the data to
-     * {@link MealManager#addMealGUI(String, String, String, int)}.
+     * {@link MealManager(String, String, String, int)}.
      *
      * <p>After successfully adding the meal, the form fields are cleared and
      * the result message is shown in the output label.</p>

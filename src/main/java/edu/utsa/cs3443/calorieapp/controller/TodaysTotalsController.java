@@ -17,8 +17,6 @@ import java.time.LocalDate;
  * interactions related to tracking daily calorie intake and remaining
  * calories, as well as navigating to other screens such as the meal log.
  *
- * <p>Currently, the calorie goal is hard-coded for demonstration purposes.
- * Future updates should dynamically retrieve and display user-specific goals.</p>
  */
 
 public class TodaysTotalsController {
@@ -36,11 +34,6 @@ public class TodaysTotalsController {
     /**
      * Initializes the controller. This method is automatically called
      *  after loading the FXML file.
-     * <p>
-     * Current implementation is a placeholder; future updates should
-     * calculate and display real values based on the user's daily goal
-     * and meals consumed.
-     * </p>
      */
 
     @FXML

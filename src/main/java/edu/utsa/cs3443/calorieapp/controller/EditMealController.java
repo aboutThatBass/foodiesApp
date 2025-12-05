@@ -35,13 +35,27 @@ public class EditMealController {
     @FXML private TextField proteinField;
     /** Text field for entering the meal's time. */
     @FXML private TextField timeField;
+    /** Text field for entering the meal's ID */
     @FXML private TextField idField;
+    /** Text field for choosing the date */
     @FXML private DatePicker datePicker;
+    /** Label used to display error messages or status updates to the user. */
     @FXML private Label output;
+    /** Button that navigates the user forward to the next screen or action. */
     @FXML private Button goButton;
+    /** Button that submits the user's input from the current form. */
     @FXML private Button submitButton;
+    /** Button that returns the user to the previous screen. */
     @FXML private Button backButton;
 
+    /**
+     * Initializes the controller after its FXML fields have been loaded.
+     * <p>
+     * This method retrieves the shared {@link MealManager} instance and the
+     * currently logged-in {@link User} from the {@link SceneController}.
+     * It prepares the controller for use before the user interacts with the UI.
+     * </p>
+     */
     @FXML public void initialize(){
         mealManager = SceneController.getMealManager();
         User user = SceneController.getCurrentUser();

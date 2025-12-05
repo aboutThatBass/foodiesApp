@@ -9,6 +9,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Controller responsible for handling user input and actions
+ * related to creating a new user profile in the application.
+ * <p>
+ * This class collects data from the profile creation form, validates it,
+ * and submits the information to the {@link AuthService} to register
+ * a new {@link User}. If registration is successful, the user is redirected
+ * to the login screen. If validation fails, appropriate error messages
+ * are displayed in the {@code output} label.
+ * </p>
+ *
+ * <p>
+ * The controller also handles navigation back to the home screen.
+ * </p>
+ */
+
 public class CreateProfileController {
 
     @FXML private TextField nameField;
@@ -20,6 +36,23 @@ public class CreateProfileController {
     @FXML private TextField calorieGoalField;
     @FXML private TextField proteinGoalField;
     @FXML private Label output;
+
+
+    /**
+     * Handles the "Submit" action when the user attempts to create a new profile.
+     * <p>
+     * This method retrieves and validates all input fields. If any field is empty,
+     * or if numeric values fail to parse, an error message is displayed.
+     * </p>
+     * <p>
+     * Upon successful validation, the method attempts to register the user using
+     * {@link AuthService#register(String, String, String, int, double, double, int, int)}.
+     * If registration succeeds, the scene switches to the login screen. If the email
+     * already exists or an exception occurs, an appropriate message is shown to the user.
+     * </p>
+     *
+     * @param event the {@link ActionEvent} triggered by clicking the submit button
+     */
 
     @FXML
     public void handleSubmit(ActionEvent event) {
@@ -62,6 +95,17 @@ public class CreateProfileController {
             output.setText(e.getMessage());
         }
     }
+    /**
+     * Handles the action of returning to the home screen.
+     * <p>
+     * This method switches the application's scene to the home layout,
+     * allowing the user to navigate away from the profile creation page.
+     * </p>
+     *
+     * @param event the {@link ActionEvent} triggered by clicking the back button
+     */
+
+
 
     @FXML
     public void handleBack(ActionEvent event) {
