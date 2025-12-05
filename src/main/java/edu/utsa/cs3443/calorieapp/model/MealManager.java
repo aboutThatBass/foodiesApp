@@ -187,7 +187,7 @@ public class MealManager {
      * @return a string containing all meals on that date, or a message if none exist
      */
 
-    public String viewMealsByDateGUI(String date) {
+    public String viewMealsByDateGUI(LocalDate date) {
         StringBuilder sb = new StringBuilder();
         boolean validDate = false;
         for (Meal meal : meals){

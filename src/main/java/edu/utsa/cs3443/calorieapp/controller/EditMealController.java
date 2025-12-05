@@ -1,9 +1,14 @@
 package edu.utsa.cs3443.calorieapp.controller;
 
+import edu.utsa.cs3443.calorieapp.model.Meal;
+import edu.utsa.cs3443.calorieapp.model.MealManager;
+import edu.utsa.cs3443.calorieapp.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,16 +22,28 @@ import javafx.stage.Stage;
  */
 
 public class EditMealController {
+
+    private MealManager mealManager;
     /** Text field for entering the meal's name. */
     @FXML private TextField foodNameField;
     /** Text field for entering the meal's calorie amount. */
     @FXML private TextField calField;
     /** Text field for entering the meal's date. */
-    @FXML private TextField dateField;
+    @FXML private TextField proteinField;
     /** Text field for entering the meal's time. */
     @FXML private TextField timeField;
     /** Button to trigger searching or loading a meal to edit. */
+    @FXML private TextField idField;
+    @FXML private DatePicker datePicker;
+    @FXML private Label output;
     @FXML private Button goButton;
+    @FXML private Button submitButton;
+    @FXML private Button backButton;
+
+    @FXML public void initialize(){
+        mealManager = SceneController.getMealManager();
+        User user = SceneController.getCurrentUser();
+    }
 
     /**
      * Handles the "Submit" button action to save edits made to a meal.
@@ -56,7 +73,26 @@ public class EditMealController {
      */
     @FXML
     public void handleGo(ActionEvent e) {
-        System.out.println("Test");
+        if(idField.getText().equals("")){
+            output.setText("Please enter a date");
+            return;
+        }
+
+        int id = Integer.parseInt(idField.getText());
+        Meal meal;
+
+        for(Meal m : mealManager.getMeals()){
+            if(m.getId() == id){
+                meal = m;
+                foodNameField.setText(meal.getName());
+                calField.setText(String.valueOf(meal.getCalories()));
+                proteinField.setText(String.valueOf(meal.getProtein()));
+                timeField.setText(String.valueOf(meal.getTime()));
+                datePicker.setValue(meal.getDate());
+
+                }
+        }
+
     }
 
     /**

@@ -31,7 +31,7 @@ public class MealListController {
     private ToggleGroup viewGroup;
     /** Text field for entering a specific date to filter meals. */
     @FXML
-    private TextField dateBox;
+    private DatePicker datePicker;
     /** Button to trigger displaying the meal log. */
     @FXML
     private Button goButton;
@@ -71,7 +71,7 @@ public class MealListController {
             outputBox.setText(mealManager.viewAllMealsGUI());
         }
         else if(byDateButton.isSelected()){
-            outputBox.setText(mealManager.viewMealsByDateGUI(dateBox.getText()));
+            outputBox.setText(mealManager.viewMealsByDateGUI(datePicker.getValue()));
         }
         else{
             outputBox.setText("Please select an option");
