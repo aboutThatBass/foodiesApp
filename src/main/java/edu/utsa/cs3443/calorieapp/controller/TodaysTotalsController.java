@@ -58,18 +58,6 @@ public class TodaysTotalsController {
     }
 
     /**
-     * Navigates to the meal log screen.
-     *
-     * @param e the action event triggered by a user action (e.g., button click)
-     */
-
-    @FXML
-    public void goToMealLog(ActionEvent e) {
-        SceneController.switchScene("meal_list.fxml");
-    }
-
-
-    /**
      * Handles the "Back" button action to close the current window
      * and return to the previous screen.
      *

@@ -85,7 +85,7 @@ public class EditMealController {
             return;
         }
 
-        // Validate time (you can add formatting later if needed)
+        // Validate time
         String time = timeField.getText().trim();
         if (time.isEmpty()) {
             output.setText("Time cannot be empty.");

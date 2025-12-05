@@ -79,16 +79,6 @@ public class MainController {
     }
 
     /**
-     * Switches the main scene to the "Weekly Totals" screen.
-     *
-     * @param e the action event triggered by the corresponding UI control
-     */
-
-    public void goToWeeklyTotals(ActionEvent e) {
-        SceneController.switchScene("/layouts/weekly_total.fxml");
-    }
-
-    /**
      * Logs out the current user and returns to the home screen.
      *
      * @param e the action event triggered by the corresponding UI control
