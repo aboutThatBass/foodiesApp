@@ -74,13 +74,32 @@ public class AddMealController {
 
     @FXML
     public void handleSubmit(ActionEvent e) throws IOException {
-        String name = foodNameField.getText();
-        LocalDate date = datePicker.getValue();
-        String time = timeField.getText();
+        // Validate name
+        String name = foodNameField.getText().trim();
+        if (name.isEmpty()) {
+            output.setText("Food name cannot be empty.");
+            return;
+        }
 
-        //TODO: INPUT VALIDATION
-        int calories = Integer.parseInt(calField.getText());
-        int protein = Integer.parseInt(proteinField.getText());
+        // Validate time (you can add formatting later if needed)
+        String time = timeField.getText().trim();
+        if (time.isEmpty()) {
+            output.setText("Time cannot be empty.");
+            return;
+        }
+
+        // Validate date
+        LocalDate date = datePicker.getValue();
+        if (datePicker.getValue() == null) {
+            output.setText("Please select a valid date.");
+            return;
+        }
+
+        // Validate protein and calories using helper method
+        Integer calories = parsePositiveIntField(calField, "Calories");
+        if (calories == null) return;
+        Integer protein = parsePositiveIntField(proteinField, "Protein");
+        if (protein == null) return;
 
         //mealManager.addMealGUI(name,date,time,calories,protein);
         output.setText(mealManager.addMealGUI(name,date,time,calories,protein));
@@ -103,5 +122,27 @@ public class AddMealController {
         stage.close();
     }
 
+    private Integer parsePositiveIntField(TextField field, String fieldName) {
+        String raw = field.getText().trim();
 
+        if (raw.isEmpty()) {
+            output.setText(fieldName + " cannot be empty.");
+            return null;
+        }
+
+        int value;
+        try {
+            value = Integer.parseInt(raw);
+        } catch (NumberFormatException ex) {
+            output.setText(fieldName + " must be a whole number.");
+            return null;
+        }
+
+        if (value < 0) {
+            output.setText(fieldName + " cannot be negative.");
+            return null;
+        }
+
+        return value;
+    }
 }

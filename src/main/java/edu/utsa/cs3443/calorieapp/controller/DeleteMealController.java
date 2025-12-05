@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.calorieapp.controller;
 
+import edu.utsa.cs3443.calorieapp.model.Meal;
 import edu.utsa.cs3443.calorieapp.model.MealManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,7 @@ public class DeleteMealController {
 
     /** Reference to the application's shared meal manager. */
     private MealManager mealManager;
+    private Meal currentMeal = null;
 
     /**
      * Initializes the controller by retrieving the shared
@@ -59,13 +61,31 @@ public class DeleteMealController {
 
     @FXML
     private void handleGo(ActionEvent event) {
-        try {
-            int id = Integer.parseInt(idField.getText());
-            //need to find meal by ID and return it
-            outputArea.setText("Test");
-        } catch (NumberFormatException e) {
-            outputArea.setText("Invalid ID. Please enter a number.");
+        String raw = idField.getText().trim();
+        currentMeal = null;  // reset
+
+        if (raw.isEmpty()) {
+            outputArea.setText("Please enter a valid ID.");
+            return;
         }
+
+        int id;
+        try {
+            id = Integer.parseInt(raw);
+        } catch (NumberFormatException e) {
+            outputArea.setText("Invalid ID. Please enter a whole number.");
+            return;
+        }
+
+        for (Meal m : mealManager.getMeals()) {
+            if (m.getId() == id) {
+                currentMeal = m;
+                outputArea.setText(m.toString());
+                return;
+            }
+        }
+
+        outputArea.setText("No meal found with that ID.");
     }
 
     /**
@@ -79,13 +99,27 @@ public class DeleteMealController {
 
     @FXML
     private void handleDelete(ActionEvent event) {
-        try {
-            int id = Integer.parseInt(idField.getText());
-            String result = "Test";
-            outputArea.setText(result);
-        } catch (NumberFormatException e) {
-            outputArea.setText("Invalid ID. Please enter a number.");
+        if (currentMeal == null) {
+            outputArea.setText("Please search for a meal ID before deleting.");
+            return;
         }
+
+        boolean removed = mealManager.getMeals().remove(currentMeal);
+
+        if (!removed) {
+            outputArea.setText("Error: could not delete the meal.");
+            return;
+        }
+
+        try {
+            mealManager.saveDataToFile();
+            outputArea.setText("Meal deleted successfully!");
+        } catch (Exception e) {
+            outputArea.setText("Failed to save changes after deletion.");
+        }
+
+        currentMeal = null;
+        idField.clear();
     }
 
     /**

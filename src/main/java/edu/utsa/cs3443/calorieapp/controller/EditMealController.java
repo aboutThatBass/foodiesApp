@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 /**
  * Controller class for the "Edit Meal" screen. This class manages
  * user interactions related to editing existing meals, including
@@ -23,16 +25,16 @@ import javafx.stage.Stage;
 
 public class EditMealController {
 
+    private Meal currentMeal = null;
     private MealManager mealManager;
     /** Text field for entering the meal's name. */
     @FXML private TextField foodNameField;
     /** Text field for entering the meal's calorie amount. */
     @FXML private TextField calField;
-    /** Text field for entering the meal's date. */
+    /** Text field for entering the meal's protein amount. */
     @FXML private TextField proteinField;
     /** Text field for entering the meal's time. */
     @FXML private TextField timeField;
-    /** Button to trigger searching or loading a meal to edit. */
     @FXML private TextField idField;
     @FXML private DatePicker datePicker;
     @FXML private Label output;
@@ -57,8 +59,54 @@ public class EditMealController {
      */
     @FXML
     public void handleSubmit(ActionEvent e) {
-        // "Success" placeholder
-        System.out.println("Test");
+        if(currentMeal == null){
+            output.setText("No meal selected. Please search for an ID first.");
+            return;
+        }
+
+        // Validate name
+        String name = foodNameField.getText().trim();
+        if (name.isEmpty()) {
+            output.setText("Food name cannot be empty.");
+            return;
+        }
+
+        // Validate time (you can add formatting later if needed)
+        String time = timeField.getText().trim();
+        if (time.isEmpty()) {
+            output.setText("Time cannot be empty.");
+            return;
+        }
+
+        // Validate date
+        if (datePicker.getValue() == null) {
+            output.setText("Please select a valid date.");
+            return;
+        }
+
+        // Validate protein and calories using helper method
+        Integer calories = parsePositiveIntField(calField, "Calories");
+        if (calories == null) return;
+        Integer protein = parsePositiveIntField(proteinField, "Protein");
+        if (protein == null) return;
+
+        try {
+            currentMeal.setName(foodNameField.getText());
+            currentMeal.setCalories(calories);
+            currentMeal.setProtein(protein);
+            currentMeal.setTime(timeField.getText());
+            currentMeal.setDate(datePicker.getValue());
+        } catch (Exception ex) {
+            output.setText("Invalid input. Check your fields.");
+            return;
+        }
+
+        try {
+            mealManager.saveDataToFile();
+            output.setText("Meal updated successfully!");
+        } catch (IOException ex) {
+            output.setText("Failed to save changes.");
+        }
     }
 
     /**
@@ -73,26 +121,41 @@ public class EditMealController {
      */
     @FXML
     public void handleGo(ActionEvent e) {
-        if(idField.getText().equals("")){
-            output.setText("Please enter a date");
+        String raw = idField.getText().trim();
+
+        if(raw.isEmpty()){
+            output.setText("Please enter a valid ID");
             return;
         }
 
-        int id = Integer.parseInt(idField.getText());
-        Meal meal;
+        int id;
+        try {
+            id = Integer.parseInt(idField.getText());
+        } catch (NumberFormatException ex) {
+            output.setText("ID must be a whole number.");
+            return;
+        }
+        Meal found = null;
 
         for(Meal m : mealManager.getMeals()){
             if(m.getId() == id){
-                meal = m;
-                foodNameField.setText(meal.getName());
-                calField.setText(String.valueOf(meal.getCalories()));
-                proteinField.setText(String.valueOf(meal.getProtein()));
-                timeField.setText(String.valueOf(meal.getTime()));
-                datePicker.setValue(meal.getDate());
-
+                found = m;
+                break;
                 }
         }
 
+        if(found == null){
+            output.setText("No meal with that ID was found.");
+            return;
+        }
+
+        currentMeal = found;
+
+        foodNameField.setText(found.getName());
+        calField.setText(String.valueOf(found.getCalories()));
+        proteinField.setText(String.valueOf(found.getProtein()));
+        timeField.setText(String.valueOf(found.getTime()));
+        datePicker.setValue(found.getDate());
     }
 
     /**
@@ -105,5 +168,42 @@ public class EditMealController {
     public void handleBack(ActionEvent e) {
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    /**
+     * Parses the text from the given {@code TextField} as a non-negative integer.
+     * <p>
+     * This method trims the input, checks for emptiness, validates that the value
+     * is a whole number, and ensures it is not negative. If any validation fails,
+     * an appropriate error message is written to the {@code output} label and
+     * {@code null} is returned.
+     * </p>
+     *
+     * @param field     the TextField containing the numeric input to validate
+     * @param fieldName the human-readable name of the field (used in error messages)
+     * @return the parsed integer value if valid; {@code null} if the input is invalid
+     */
+    private Integer parsePositiveIntField(TextField field, String fieldName) {
+        String raw = field.getText().trim();
+
+        if (raw.isEmpty()) {
+            output.setText(fieldName + " cannot be empty.");
+            return null;
+        }
+
+        int value;
+        try {
+            value = Integer.parseInt(raw);
+        } catch (NumberFormatException ex) {
+            output.setText(fieldName + " must be a whole number.");
+            return null;
+        }
+
+        if (value < 0) {
+            output.setText(fieldName + " cannot be negative.");
+            return null;
+        }
+
+        return value;
     }
 }

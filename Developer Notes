@@ -1,0 +1,7 @@
+- Time is currently a string and does not validate for anything other than nonnull
+- Meal list display needs a facelift
+- Rolling weekly metrics are a good next goal
+- Many users have requested serving sizes
+- Many view/edit/delete functions would benefit from input validation helper methods
+
+    - Chris
