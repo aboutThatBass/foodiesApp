@@ -175,7 +175,7 @@ public class Meal {
 
     @Override
     public String toString() {
-        return id + " " + name + " " + date + " " + time + " " + calories + " "+ protein + "\n";
+        return "ID: " + id + " " + name + " " + date + " " + time + " " + calories + " "+ protein + "\n";
     }
 }
 
